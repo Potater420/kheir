@@ -1,4 +1,4 @@
-package com.yourteam.kheir
+package com.potater420.kheir
 
 import io.flutter.embedding.android.FlutterActivity
 
