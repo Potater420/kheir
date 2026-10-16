@@ -1,0 +1,42 @@
+{
+  "@@locale": "en",
+
+  "appName": "Kheir",
+  "appTagline": "Together for each other",
+  "splashFooter": "Smart donation and volunteering platform",
+
+  "loginTitle": "Welcome back",
+  "loginHeading": "Your good continues with us",
+  "loginSubtitle": "Sign in to follow your donations and nearby ways to help.",
+  "loginButton": "Log in",
+  "forgotPassword": "Forgot your password?",
+  "privacyNotice": "Your data is encrypted and protected. Your privacy comes first.",
+  "noAccountPrompt": "New here?",
+  "createAccountAction": "Create an account",
+
+  "registerTitle": "New account, new impact",
+  "registerSubtitle": "One simple step brings us together for good",
+  "registerButton": "Create account",
+  "passwordRequirements": "At least 8 characters, an uppercase letter, a number and a symbol",
+  "termsConsent": "I agree to the Terms of Use and Privacy Policy",
+  "haveAccountPrompt": "Already have an account?",
+  "loginAction": "Log in",
+
+  "fullNameLabel": "Full name",
+  "emailLabel": "Email",
+  "passwordLabel": "Password",
+  "confirmPasswordLabel": "Confirm password",
+
+  "validationEmailRequired": "Enter your email",
+  "validationEmailInvalid": "Enter a valid email address",
+  "validationPasswordRequired": "Enter your password",
+  "validationPasswordWeak": "Password must be at least 8 characters with an uppercase letter, a number and a symbol",
+  "validationNameRequired": "Enter your full name",
+  "validationPasswordMismatch": "Passwords do not match",
+  "validationTermsRequired": "You need to accept the terms to continue",
+
+  "errorInvalidCredentials": "Incorrect email or password.",
+  "errorEmailInUse": "This email is already registered.",
+  "errorNetwork": "No internet connection. Check your network and try again.",
+  "errorUnknown": "Something went wrong. Please try again."
+}
