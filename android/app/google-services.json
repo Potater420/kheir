@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "106161077308",
+    "project_id": "kheir-9f8f5",
+    "storage_bucket": "kheir-9f8f5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106161077308:android:86491affea35437a769739",
+        "android_client_info": {
+          "package_name": "com.potater420.kheir"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnK34q7OmcJ6rcHPa6nYpwn-VRAi_CuQs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
