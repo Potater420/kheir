@@ -113,4 +113,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorUnknown => 'Something went wrong. Please try again.';
+
+  @override
+  String get showPassword => 'Show password';
+
+  @override
+  String get hidePassword => 'Hide password';
+
+  @override
+  String get homePlaceholderTitle => 'You are signed in';
+
+  @override
+  String get homePlaceholderMessage =>
+      'The home screen is coming in a later phase.';
+
+  @override
+  String get logoutButton => 'Log out';
 }

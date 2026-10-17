@@ -15,5 +15,7 @@ abstract final class AppRadius {
   static const double m = 12;
   static const double l = 16;
   static const double xl = 20;
+  static const double brandMark = 36;
+  static const double medallion = 38;
   static const double pill = 100;
 }

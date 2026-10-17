@@ -295,6 +295,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Something went wrong. Please try again.'**
   String get errorUnknown;
+
+  /// No description provided for @showPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Show password'**
+  String get showPassword;
+
+  /// No description provided for @hidePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide password'**
+  String get hidePassword;
+
+  /// No description provided for @homePlaceholderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You are signed in'**
+  String get homePlaceholderTitle;
+
+  /// No description provided for @homePlaceholderMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The home screen is coming in a later phase.'**
+  String get homePlaceholderMessage;
+
+  /// No description provided for @logoutButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logoutButton;
 }
 
 class _AppLocalizationsDelegate

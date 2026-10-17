@@ -111,4 +111,19 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorUnknown => 'حصلت مشكلة. حاول مرة تانية.';
+
+  @override
+  String get showPassword => 'إظهار كلمة المرور';
+
+  @override
+  String get hidePassword => 'إخفاء كلمة المرور';
+
+  @override
+  String get homePlaceholderTitle => 'تم تسجيل دخولك بنجاح';
+
+  @override
+  String get homePlaceholderMessage => 'الشاشة الرئيسية جاية في مرحلة لاحقة.';
+
+  @override
+  String get logoutButton => 'تسجيل الخروج';
 }
