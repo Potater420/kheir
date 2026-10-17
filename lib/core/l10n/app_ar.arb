@@ -1,0 +1,42 @@
+{
+  "@@locale": "ar",
+
+  "appName": "خير",
+  "appTagline": "كلنا لبعض",
+  "splashFooter": "منصة التبرع والتطوع الذكية",
+
+  "loginTitle": "رجوعك خير",
+  "loginHeading": "خيرك بيكمل معانا",
+  "loginSubtitle": "ادخل حسابك وتابع تبرعاتك وفرص الخير القريبة منك.",
+  "loginButton": "تسجيل الدخول",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "privacyNotice": "بياناتك مشفرة ومحمية. خصوصيتك أولوية.",
+  "noAccountPrompt": "لسه جديد؟",
+  "createAccountAction": "إنشاء حساب",
+
+  "registerTitle": "حساب جديد.. وأثر جديد",
+  "registerSubtitle": "خطوة بسيطة تجمعنا على الخير",
+  "registerButton": "إنشاء حساب",
+  "passwordRequirements": "8 أحرف على الأقل، حرف كبير ورقم ورمز",
+  "termsConsent": "أوافق على شروط الاستخدام وسياسة الخصوصية",
+  "haveAccountPrompt": "عندك حساب؟",
+  "loginAction": "تسجيل الدخول",
+
+  "fullNameLabel": "الاسم بالكامل",
+  "emailLabel": "البريد الإلكتروني",
+  "passwordLabel": "كلمة المرور",
+  "confirmPasswordLabel": "تأكيد كلمة المرور",
+
+  "validationEmailRequired": "اكتب بريدك الإلكتروني",
+  "validationEmailInvalid": "اكتب بريد إلكتروني صحيح",
+  "validationPasswordRequired": "اكتب كلمة المرور",
+  "validationPasswordWeak": "كلمة المرور لازم تكون 8 أحرف على الأقل وفيها حرف كبير ورقم ورمز",
+  "validationNameRequired": "اكتب اسمك بالكامل",
+  "validationPasswordMismatch": "كلمتا المرور غير متطابقتين",
+  "validationTermsRequired": "لازم توافق على الشروط عشان تكمل",
+
+  "errorInvalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "errorEmailInUse": "هذا البريد الإلكتروني مسجل بالفعل.",
+  "errorNetwork": "لا يوجد اتصال بالإنترنت. تأكد من الشبكة وحاول تاني.",
+  "errorUnknown": "حصلت مشكلة. حاول مرة تانية."
+}
