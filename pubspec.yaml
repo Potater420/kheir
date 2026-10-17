@@ -50,3 +50,8 @@ flutter:
           weight: 500
         - asset: assets/fonts/Tajawal-Bold.ttf
           weight: 700
+
+flutter_native_splash:
+  color: "#0F766E"
+  android_12:
+    color: "#0F766E"

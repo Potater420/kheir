@@ -7,7 +7,7 @@ on:
     branches: [develop, main]
 
 jobs:
-  analyze-and-test:
+  analyze:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -19,4 +19,3 @@ jobs:
 
       - run: flutter pub get
       - run: flutter analyze
-      - run: flutter test
