@@ -6,6 +6,8 @@ abstract final class AppColors {
   static const Color primary = Color(0xFF0F766E);
   static const Color primaryStrong = Color(0xFF095A54);
   static const Color primarySubtle = Color(0xFFE8F3EF);
+  // Text on a brand-colored background (splash screen), softer than white.
+  static const Color onBrandMuted = Color(0xFFE0F1E9);
 
   // Donate (amber). Never put white text on it, use onDonate.
   static const Color donate = Color(0xFFF59E0B);
