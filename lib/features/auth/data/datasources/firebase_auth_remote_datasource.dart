@@ -9,10 +9,9 @@ import 'auth_remote_datasource.dart';
 /// Firebase Auth for the account, Firestore (`users/{uid}`) for the profile.
 class FirebaseAuthRemoteDataSource implements AuthRemoteDataSource {
   FirebaseAuthRemoteDataSource({
-    required FirebaseAuth auth,
-    required FirebaseFirestore firestore,
-  })  : _auth = auth,
-        _firestore = firestore;
+    required this._auth,
+    required this._firestore,
+  });
 
   final FirebaseAuth _auth;
   final FirebaseFirestore _firestore;

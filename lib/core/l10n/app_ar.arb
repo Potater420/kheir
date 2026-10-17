@@ -38,5 +38,11 @@
   "errorInvalidCredentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
   "errorEmailInUse": "هذا البريد الإلكتروني مسجل بالفعل.",
   "errorNetwork": "لا يوجد اتصال بالإنترنت. تأكد من الشبكة وحاول تاني.",
-  "errorUnknown": "حصلت مشكلة. حاول مرة تانية."
+  "errorUnknown": "حصلت مشكلة. حاول مرة تانية.",
+
+  "showPassword": "إظهار كلمة المرور",
+  "hidePassword": "إخفاء كلمة المرور",
+  "homePlaceholderTitle": "تم تسجيل دخولك بنجاح",
+  "homePlaceholderMessage": "الشاشة الرئيسية جاية في مرحلة لاحقة.",
+  "logoutButton": "تسجيل الخروج"
 }

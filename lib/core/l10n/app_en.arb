@@ -38,5 +38,11 @@
   "errorInvalidCredentials": "Incorrect email or password.",
   "errorEmailInUse": "This email is already registered.",
   "errorNetwork": "No internet connection. Check your network and try again.",
-  "errorUnknown": "Something went wrong. Please try again."
+  "errorUnknown": "Something went wrong. Please try again.",
+
+  "showPassword": "Show password",
+  "hidePassword": "Hide password",
+  "homePlaceholderTitle": "You are signed in",
+  "homePlaceholderMessage": "The home screen is coming in a later phase.",
+  "logoutButton": "Log out"
 }
