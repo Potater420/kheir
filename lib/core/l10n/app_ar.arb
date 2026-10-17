@@ -44,5 +44,8 @@
   "hidePassword": "إخفاء كلمة المرور",
   "homePlaceholderTitle": "تم تسجيل دخولك بنجاح",
   "homePlaceholderMessage": "الشاشة الرئيسية جاية في مرحلة لاحقة.",
-  "logoutButton": "تسجيل الخروج"
+  "logoutButton": "تسجيل الخروج",
+
+  "phoneLabel": "رقم الهاتف (اختياري)",
+  "validationPhoneInvalid": "اكتب رقم هاتف صحيح."
 }

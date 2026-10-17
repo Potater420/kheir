@@ -129,4 +129,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logoutButton => 'Log out';
+
+  @override
+  String get phoneLabel => 'Phone number (optional)';
+
+  @override
+  String get validationPhoneInvalid => 'Enter a valid phone number.';
 }

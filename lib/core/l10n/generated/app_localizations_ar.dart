@@ -126,4 +126,10 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get logoutButton => 'تسجيل الخروج';
+
+  @override
+  String get phoneLabel => 'رقم الهاتف (اختياري)';
+
+  @override
+  String get validationPhoneInvalid => 'اكتب رقم هاتف صحيح.';
 }
