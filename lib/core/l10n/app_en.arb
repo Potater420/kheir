@@ -44,5 +44,8 @@
   "hidePassword": "Hide password",
   "homePlaceholderTitle": "You are signed in",
   "homePlaceholderMessage": "The home screen is coming in a later phase.",
-  "logoutButton": "Log out"
+  "logoutButton": "Log out",
+
+  "phoneLabel": "Phone number (optional)",
+  "validationPhoneInvalid": "Enter a valid phone number."
 }

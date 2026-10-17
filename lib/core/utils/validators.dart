@@ -8,11 +8,14 @@ enum ValidationError {
   nameRequired,
   passwordMismatch,
   termsRequired,
+  phoneInvalid,
 }
 
 /// Pure validation rules. Each returns null when the value is valid.
 abstract final class Validators {
   static final RegExp _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
+
+  static final RegExp _phonePattern = RegExp(r'^\+?\d{8,15}$');
 
   static ValidationError? email(String? value) {
     final text = value?.trim() ?? '';
@@ -47,6 +50,14 @@ abstract final class Validators {
   static ValidationError? confirmPassword(String? password, String? confirm) {
     if (confirm != password) return ValidationError.passwordMismatch;
     return null;
+  }
+
+  /// Optional field: empty is fine, otherwise 8 to 15 digits with an
+  /// optional leading +. Spaces and dashes are ignored.
+  static ValidationError? phoneOptional(String? value) {
+    final text = value?.replaceAll(RegExp(r'[\s-]'), '') ?? '';
+    if (text.isEmpty) return null;
+    return _phonePattern.hasMatch(text) ? null : ValidationError.phoneInvalid;
   }
 
   static ValidationError? termsAccepted({required bool accepted}) {

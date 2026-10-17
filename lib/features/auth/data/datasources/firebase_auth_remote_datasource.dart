@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../../../core/error/failure.dart';
 import '../../../../core/error/failure_exception.dart';
@@ -115,6 +116,8 @@ class FirebaseAuthRemoteDataSource implements AuthRemoteDataSource {
 
   Failure _toFailure(Object error) {
     if (error is FailureException) return error.failure;
+    // Shows the real reason in the debug console (hidden in release builds).
+    if (kDebugMode) debugPrint('Auth data source error: $error');
     if (error is FirebaseAuthException) {
       return switch (error.code) {
         'invalid-credential' ||
