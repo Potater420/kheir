@@ -337,6 +337,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter a valid phone number.'**
   String get validationPhoneInvalid;
+
+  /// No description provided for @identifierLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email or phone number'**
+  String get identifierLabel;
+
+  /// No description provided for @validationIdentifierRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email or phone number'**
+  String get validationIdentifierRequired;
+
+  /// No description provided for @validationIdentifierInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email or phone number'**
+  String get validationIdentifierInvalid;
+
+  /// No description provided for @validationPasswordTooShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 8 characters'**
+  String get validationPasswordTooShort;
+
+  /// No description provided for @errorSessionExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'Your session has expired. Please log in again.'**
+  String get errorSessionExpired;
+
+  /// No description provided for @errorForbidden.
+  ///
+  /// In en, this message translates to:
+  /// **'You don\'t have permission to do that.'**
+  String get errorForbidden;
+
+  /// No description provided for @errorTooManyRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many attempts. Please try again later.'**
+  String get errorTooManyRequests;
+
+  /// No description provided for @errorServer.
+  ///
+  /// In en, this message translates to:
+  /// **'The server had a problem. Please try again later.'**
+  String get errorServer;
 }
 
 class _AppLocalizationsDelegate

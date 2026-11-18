@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,14 +12,22 @@ part 'auth_session_state.dart';
 
 /// Knows whether someone is signed in. Lives for the whole app, so any
 /// screen can read it (the splash checks it, the home screen signs out).
+/// It also reacts when the network layer reports the session is over.
 class AuthSessionCubit extends Cubit<AuthSessionState> {
   AuthSessionCubit({
     required this._getCurrentUser,
     required this._logoutUser,
-  }) : super(const AuthSessionState());
+    required Stream<void> sessionExpired,
+  }) : super(const AuthSessionState()) {
+    _expiredSubscription = sessionExpired.listen((_) {
+      if (isClosed) return;
+      emit(const AuthSessionState(status: AuthSessionStatus.unauthenticated));
+    });
+  }
 
   final GetCurrentUser _getCurrentUser;
   final LogoutUser _logoutUser;
+  late final StreamSubscription<void> _expiredSubscription;
 
   /// Called once at startup (by the splash screen).
   Future<void> checkSession() async {
@@ -47,5 +57,11 @@ class AuthSessionCubit extends Cubit<AuthSessionState> {
     final result = await _logoutUser();
     if (isClosed || result is! Success<void>) return;
     emit(const AuthSessionState(status: AuthSessionStatus.unauthenticated));
+  }
+
+  @override
+  Future<void> close() async {
+    await _expiredSubscription.cancel();
+    return super.close();
   }
 }

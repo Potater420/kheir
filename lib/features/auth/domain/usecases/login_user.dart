@@ -8,9 +8,9 @@ class LoginUser {
   final AuthRepository _repository;
 
   Future<Result<AppUser>> call({
-    required String email,
+    required String identifier,
     required String password,
   }) {
-    return _repository.login(email: email, password: password);
+    return _repository.login(identifier: identifier, password: password);
   }
 }

@@ -26,12 +26,12 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
+  final _identifierController = TextEditingController();
   final _passwordController = TextEditingController();
 
   @override
   void dispose() {
-    _emailController.dispose();
+    _identifierController.dispose();
     _passwordController.dispose();
     super.dispose();
   }
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!_formKey.currentState!.validate()) return;
     unawaited(
       context.read<LoginCubit>().submit(
-            email: _emailController.text,
+            identifier: _identifierController.text.trim(),
             password: _passwordController.text,
           ),
     );
@@ -132,13 +132,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         const SizedBox(height: AppSpacing.xxl),
                         AppTextField(
-                          label: l10n.emailLabel,
-                          controller: _emailController,
-                          icon: LucideIcons.mail,
+                          label: l10n.identifierLabel,
+                          controller: _identifierController,
+                          icon: LucideIcons.user,
                           keyboardType: TextInputType.emailAddress,
                           textInputAction: TextInputAction.next,
-                          autofillHints: const [AutofillHints.email],
-                          validator: validatorFor(Validators.email),
+                          autofillHints: const [AutofillHints.username],
+                          validator: validatorFor(Validators.emailOrPhone),
                         ),
                         const SizedBox(height: AppSpacing.l),
                         AppTextField(
@@ -148,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           isPassword: true,
                           textInputAction: TextInputAction.done,
                           autofillHints: const [AutofillHints.password],
-                          validator: validatorFor(Validators.passwordRequired),
+                          validator: validatorFor(Validators.passwordMinLength),
                           onSubmitted: (_) => _submit(),
                         ),
                         const SizedBox(height: AppSpacing.s),

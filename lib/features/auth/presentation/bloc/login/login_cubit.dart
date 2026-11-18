@@ -14,13 +14,13 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginUser _loginUser;
 
   Future<void> submit({
-    required String email,
+    required String identifier,
     required String password,
   }) async {
     if (state.isSubmitting) return;
     emit(const LoginState(status: LoginStatus.submitting));
 
-    final result = await _loginUser(email: email, password: password);
+    final result = await _loginUser(identifier: identifier, password: password);
     if (isClosed) return;
 
     switch (result) {
