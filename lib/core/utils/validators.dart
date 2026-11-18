@@ -11,12 +11,21 @@ enum ValidationError {
   nameRequired,
   passwordMismatch,
   termsRequired,
+  phoneInvalid,
 }
 
 /// Pure validation rules. Each returns null when the value is valid.
 abstract final class Validators {
   static final RegExp _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
   static final RegExp _phonePattern = RegExp(r'^\+?\d{8,15}$');
+
+  /// Register: the phone is optional, but if given it must look like a number.
+  static ValidationError? phoneOptional(String? value) {
+    final text = value?.trim() ?? '';
+    if (text.isEmpty) return null;
+    final digits = text.replaceAll(RegExp(r'[\s-]'), '');
+    return _phonePattern.hasMatch(digits) ? null : ValidationError.phoneInvalid;
+  }
 
   static ValidationError? email(String? value) {
     final text = value?.trim() ?? '';
@@ -56,7 +65,8 @@ abstract final class Validators {
   /// Register: 8+ characters, an uppercase letter, a number and a symbol.
   static ValidationError? passwordStrong(String? value) {
     if (value == null || value.isEmpty) return ValidationError.passwordRequired;
-    final strong = value.length >= 8 &&
+    final strong =
+        value.length >= 8 &&
         value.contains(RegExp('[A-Z]')) &&
         value.contains(RegExp(r'\d')) &&
         value.contains(RegExp('[^A-Za-z0-9]'));
