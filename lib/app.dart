@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import 'core/di/injection_container.dart';
 import 'core/l10n/generated/app_localizations.dart';
+import 'core/network/session_events.dart';
 import 'core/router/app_router.dart';
 import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/bloc/auth_session/auth_session_cubit.dart';
@@ -57,6 +58,7 @@ class _KheirAppState extends State<KheirApp> with WidgetsBindingObserver {
       create: (_) => AuthSessionCubit(
         getCurrentUser: sl(),
         logoutUser: sl(),
+        sessionExpired: sl<SessionEvents>().expired,
       ),
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

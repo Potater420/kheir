@@ -132,4 +132,31 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get validationPhoneInvalid => 'اكتب رقم هاتف صحيح.';
+
+  @override
+  String get identifierLabel => 'البريد الإلكتروني أو رقم الهاتف';
+
+  @override
+  String get validationIdentifierRequired =>
+      'اكتب بريدك الإلكتروني أو رقم هاتفك';
+
+  @override
+  String get validationIdentifierInvalid =>
+      'اكتب بريد إلكتروني أو رقم هاتف صحيح';
+
+  @override
+  String get validationPasswordTooShort =>
+      'كلمة المرور لازم تكون 8 أحرف على الأقل';
+
+  @override
+  String get errorSessionExpired => 'انتهت جلستك. سجّل الدخول مرة تانية.';
+
+  @override
+  String get errorForbidden => 'مش مسموح لك تعمل ده.';
+
+  @override
+  String get errorTooManyRequests => 'محاولات كتير. حاول مرة تانية بعد شوية.';
+
+  @override
+  String get errorServer => 'حصلت مشكلة في السيرفر. حاول بعد شوية.';
 }

@@ -135,4 +135,32 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get validationPhoneInvalid => 'Enter a valid phone number.';
+
+  @override
+  String get identifierLabel => 'Email or phone number';
+
+  @override
+  String get validationIdentifierRequired => 'Enter your email or phone number';
+
+  @override
+  String get validationIdentifierInvalid =>
+      'Enter a valid email or phone number';
+
+  @override
+  String get validationPasswordTooShort =>
+      'Password must be at least 8 characters';
+
+  @override
+  String get errorSessionExpired =>
+      'Your session has expired. Please log in again.';
+
+  @override
+  String get errorForbidden => 'You don\'t have permission to do that.';
+
+  @override
+  String get errorTooManyRequests =>
+      'Too many attempts. Please try again later.';
+
+  @override
+  String get errorServer => 'The server had a problem. Please try again later.';
 }

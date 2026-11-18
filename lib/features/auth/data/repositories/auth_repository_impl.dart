@@ -16,11 +16,11 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   Future<Result<AppUser>> login({
-    required String email,
+    required String identifier,
     required String password,
   }) {
     return _guard<AppUser>(
-      () => _remote.login(email: email, password: password),
+      () => _remote.login(identifier: identifier, password: password),
     );
   }
 

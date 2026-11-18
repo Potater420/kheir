@@ -5,8 +5,9 @@ import '../models/user_model.dart';
 abstract interface class AuthRemoteDataSource {
   Future<UserModel?> getCurrentUser();
 
+  /// [identifier] is an email address or a phone number.
   Future<UserModel> login({
-    required String email,
+    required String identifier,
     required String password,
   });
 

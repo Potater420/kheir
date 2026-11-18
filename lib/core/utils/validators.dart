@@ -3,7 +3,10 @@
 enum ValidationError {
   emailRequired,
   emailInvalid,
+  identifierRequired,
+  identifierInvalid,
   passwordRequired,
+  passwordTooShort,
   passwordWeak,
   nameRequired,
   passwordMismatch,
@@ -14,8 +17,15 @@ enum ValidationError {
 /// Pure validation rules. Each returns null when the value is valid.
 abstract final class Validators {
   static final RegExp _emailPattern = RegExp(r'^[^\s@]+@[^\s@]+\.[^\s@]+$');
-
   static final RegExp _phonePattern = RegExp(r'^\+?\d{8,15}$');
+
+  /// Register: the phone is optional, but if given it must look like a number.
+  static ValidationError? phoneOptional(String? value) {
+    final text = value?.trim() ?? '';
+    if (text.isEmpty) return null;
+    final digits = text.replaceAll(RegExp(r'[\s-]'), '');
+    return _phonePattern.hasMatch(digits) ? null : ValidationError.phoneInvalid;
+  }
 
   static ValidationError? email(String? value) {
     final text = value?.trim() ?? '';
@@ -24,7 +34,29 @@ abstract final class Validators {
     return null;
   }
 
-  /// Login: only checks that something was entered.
+  /// Login: an email address or a phone number (8 to 15 digits, optional +).
+  static ValidationError? emailOrPhone(String? value) {
+    final text = value?.trim() ?? '';
+    if (text.isEmpty) return ValidationError.identifierRequired;
+    if (text.contains('@')) {
+      return _emailPattern.hasMatch(text)
+          ? null
+          : ValidationError.identifierInvalid;
+    }
+    final digits = text.replaceAll(RegExp(r'[\s-]'), '');
+    return _phonePattern.hasMatch(digits)
+        ? null
+        : ValidationError.identifierInvalid;
+  }
+
+  /// Login: the API needs at least 8 characters.
+  static ValidationError? passwordMinLength(String? value) {
+    if (value == null || value.isEmpty) return ValidationError.passwordRequired;
+    if (value.length < 8) return ValidationError.passwordTooShort;
+    return null;
+  }
+
+  /// Only checks that something was entered.
   static ValidationError? passwordRequired(String? value) {
     if (value == null || value.isEmpty) return ValidationError.passwordRequired;
     return null;
@@ -33,7 +65,8 @@ abstract final class Validators {
   /// Register: 8+ characters, an uppercase letter, a number and a symbol.
   static ValidationError? passwordStrong(String? value) {
     if (value == null || value.isEmpty) return ValidationError.passwordRequired;
-    final strong = value.length >= 8 &&
+    final strong =
+        value.length >= 8 &&
         value.contains(RegExp('[A-Z]')) &&
         value.contains(RegExp(r'\d')) &&
         value.contains(RegExp('[^A-Za-z0-9]'));
@@ -50,14 +83,6 @@ abstract final class Validators {
   static ValidationError? confirmPassword(String? password, String? confirm) {
     if (confirm != password) return ValidationError.passwordMismatch;
     return null;
-  }
-
-  /// Optional field: empty is fine, otherwise 8 to 15 digits with an
-  /// optional leading +. Spaces and dashes are ignored.
-  static ValidationError? phoneOptional(String? value) {
-    final text = value?.replaceAll(RegExp(r'[\s-]'), '') ?? '';
-    if (text.isEmpty) return null;
-    return _phonePattern.hasMatch(text) ? null : ValidationError.phoneInvalid;
   }
 
   static ValidationError? termsAccepted({required bool accepted}) {

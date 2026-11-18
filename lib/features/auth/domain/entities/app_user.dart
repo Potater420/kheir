@@ -8,6 +8,7 @@ class AppUser extends Equatable {
     required this.fullName,
     required this.email,
     this.phone,
+    this.type = '',
   });
 
   final String id;
@@ -15,6 +16,9 @@ class AppUser extends Equatable {
   final String email;
   final String? phone;
 
+  /// donor, volunteer, admin or super_admin (as sent by the API).
+  final String type;
+
   @override
-  List<Object?> get props => [id, fullName, email, phone];
+  List<Object?> get props => [id, fullName, email, phone, type];
 }

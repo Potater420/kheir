@@ -1,10 +1,8 @@
 {
   "@@locale": "en",
-
   "appName": "Kheir",
   "appTagline": "Together for each other",
   "splashFooter": "Smart donation and volunteering platform",
-
   "loginTitle": "Welcome back",
   "loginHeading": "Your good continues with us",
   "loginSubtitle": "Sign in to follow your donations and nearby ways to help.",
@@ -13,7 +11,6 @@
   "privacyNotice": "Your data is encrypted and protected. Your privacy comes first.",
   "noAccountPrompt": "New here?",
   "createAccountAction": "Create an account",
-
   "registerTitle": "New account, new impact",
   "registerSubtitle": "One simple step brings us together for good",
   "registerButton": "Create account",
@@ -21,12 +18,10 @@
   "termsConsent": "I agree to the Terms of Use and Privacy Policy",
   "haveAccountPrompt": "Already have an account?",
   "loginAction": "Log in",
-
   "fullNameLabel": "Full name",
   "emailLabel": "Email",
   "passwordLabel": "Password",
   "confirmPasswordLabel": "Confirm password",
-
   "validationEmailRequired": "Enter your email",
   "validationEmailInvalid": "Enter a valid email address",
   "validationPasswordRequired": "Enter your password",
@@ -34,18 +29,23 @@
   "validationNameRequired": "Enter your full name",
   "validationPasswordMismatch": "Passwords do not match",
   "validationTermsRequired": "You need to accept the terms to continue",
-
   "errorInvalidCredentials": "Incorrect email or password.",
   "errorEmailInUse": "This email is already registered.",
   "errorNetwork": "No internet connection. Check your network and try again.",
   "errorUnknown": "Something went wrong. Please try again.",
-
   "showPassword": "Show password",
   "hidePassword": "Hide password",
   "homePlaceholderTitle": "You are signed in",
   "homePlaceholderMessage": "The home screen is coming in a later phase.",
   "logoutButton": "Log out",
-
   "phoneLabel": "Phone number (optional)",
-  "validationPhoneInvalid": "Enter a valid phone number."
+  "validationPhoneInvalid": "Enter a valid phone number.",
+  "identifierLabel": "Email or phone number",
+  "validationIdentifierRequired": "Enter your email or phone number",
+  "validationIdentifierInvalid": "Enter a valid email or phone number",
+  "validationPasswordTooShort": "Password must be at least 8 characters",
+  "errorSessionExpired": "Your session has expired. Please log in again.",
+  "errorForbidden": "You don't have permission to do that.",
+  "errorTooManyRequests": "Too many attempts. Please try again later.",
+  "errorServer": "The server had a problem. Please try again later."
 }
