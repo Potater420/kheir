@@ -11,11 +11,17 @@ abstract interface class AuthRemoteDataSource {
     required String password,
   });
 
+  Future<void> requestRegistrationCode({
+    required String email,
+    required String phone,
+  });
+
   Future<UserModel> register({
     required String fullName,
     required String email,
+    required String phone,
     required String password,
-    String? phone,
+    required String code,
   });
 
   Future<void> logout();

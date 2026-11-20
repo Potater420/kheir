@@ -10,14 +10,16 @@ class RegisterUser {
   Future<Result<AppUser>> call({
     required String fullName,
     required String email,
+    required String phone,
     required String password,
-    String? phone,
+    required String code,
   }) {
     return _repository.register(
       fullName: fullName,
       email: email,
-      password: password,
       phone: phone,
+      password: password,
+      code: code,
     );
   }
 }

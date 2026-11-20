@@ -1,20 +1,20 @@
 part of 'register_cubit.dart';
 
-enum RegisterStatus { initial, submitting, success, failure }
+enum RegisterStatus { initial, submitting, codeSent, failure }
 
 class RegisterState extends Equatable {
   const RegisterState({
     this.status = RegisterStatus.initial,
-    this.user,
+    this.draft,
     this.failure,
   });
 
   final RegisterStatus status;
-  final AppUser? user;
+  final RegisterDraft? draft;
   final Failure? failure;
 
   bool get isSubmitting => status == RegisterStatus.submitting;
 
   @override
-  List<Object?> get props => [status, user, failure];
+  List<Object?> get props => [status, draft, failure];
 }

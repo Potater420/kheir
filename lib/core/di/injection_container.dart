@@ -9,6 +9,7 @@ import '../../features/auth/domain/usecases/get_current_user.dart';
 import '../../features/auth/domain/usecases/login_user.dart';
 import '../../features/auth/domain/usecases/logout_user.dart';
 import '../../features/auth/domain/usecases/register_user.dart';
+import '../../features/auth/domain/usecases/request_registration_code.dart';
 import '../network/api_client.dart';
 import '../network/session_events.dart';
 import '../storage/token_storage.dart';
@@ -41,5 +42,6 @@ void _registerAuth() {
     ..registerLazySingleton(() => GetCurrentUser(sl()))
     ..registerLazySingleton(() => LoginUser(sl()))
     ..registerLazySingleton(() => LogoutUser(sl()))
-    ..registerLazySingleton(() => RegisterUser(sl()));
+    ..registerLazySingleton(() => RegisterUser(sl()))
+    ..registerLazySingleton(() => RequestRegistrationCode(sl()));
 }

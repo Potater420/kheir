@@ -38,7 +38,7 @@
   "homePlaceholderTitle": "You are signed in",
   "homePlaceholderMessage": "The home screen is coming in a later phase.",
   "logoutButton": "Log out",
-  "phoneLabel": "Phone number (optional)",
+  "phoneLabel": "Phone number",
   "validationPhoneInvalid": "Enter a valid phone number.",
   "identifierLabel": "Email or phone number",
   "validationIdentifierRequired": "Enter your email or phone number",
@@ -47,5 +47,25 @@
   "errorSessionExpired": "Your session has expired. Please log in again.",
   "errorForbidden": "You don't have permission to do that.",
   "errorTooManyRequests": "Too many attempts. Please try again later.",
-  "errorServer": "The server had a problem. Please try again later."
+  "errorServer": "The server had a problem. Please try again later.",
+    "verifyTitle": "Verify your email",
+  "verifyHeading": "We sent you a code",
+  "verifyInstruction": "Enter the {count}-digit code sent to {email}",
+  "@verifyInstruction": {
+    "placeholders": {
+      "count": {"type": "int"},
+      "email": {"type": "String"}
+    }
+  },
+  "verifyResendIn": "Resend code in {time}",
+  "@verifyResendIn": {
+    "placeholders": {
+      "time": {"type": "String"}
+    }
+  },
+  "verifyResend": "Resend code",
+  "verifyChangeEmail": "Change email",
+  "verifySecurityNotice": "Never share this code with anyone, even if they say they're from Kheir.",
+  "verifyConfirm": "Confirm and continue",
+  "verifyIncomplete": "Enter the full code"
 }

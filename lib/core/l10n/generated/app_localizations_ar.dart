@@ -128,7 +128,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get logoutButton => 'تسجيل الخروج';
 
   @override
-  String get phoneLabel => 'رقم الهاتف (اختياري)';
+  String get phoneLabel => 'رقم الهاتف';
 
   @override
   String get validationPhoneInvalid => 'اكتب رقم هاتف صحيح.';
@@ -159,4 +159,36 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get errorServer => 'حصلت مشكلة في السيرفر. حاول بعد شوية.';
+
+  @override
+  String get verifyTitle => 'تأكيد البريد الإلكتروني';
+
+  @override
+  String get verifyHeading => 'بعتنالك رمز التحقق';
+
+  @override
+  String verifyInstruction(int count, String email) {
+    return 'اكتب الرمز المكوّن من $count أرقام المرسل إلى $email';
+  }
+
+  @override
+  String verifyResendIn(String time) {
+    return 'إعادة إرسال الرمز خلال $time';
+  }
+
+  @override
+  String get verifyResend => 'إعادة إرسال الرمز';
+
+  @override
+  String get verifyChangeEmail => 'تغيير البريد الإلكتروني';
+
+  @override
+  String get verifySecurityNotice =>
+      'ما تشاركش رمز التحقق مع أي شخص، حتى لو قال إنه من خير.';
+
+  @override
+  String get verifyConfirm => 'تأكيد ومتابعة';
+
+  @override
+  String get verifyIncomplete => 'اكتب الرمز كامل';
 }

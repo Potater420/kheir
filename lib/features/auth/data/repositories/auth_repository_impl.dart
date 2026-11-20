@@ -25,18 +25,30 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
+  Future<Result<void>> requestRegistrationCode({
+    required String email,
+    required String phone,
+  }) {
+    return _guard<void>(
+      () => _remote.requestRegistrationCode(email: email, phone: phone),
+    );
+  }
+
+  @override
   Future<Result<AppUser>> register({
     required String fullName,
     required String email,
+    required String phone,
     required String password,
-    String? phone,
+    required String code,
   }) {
     return _guard<AppUser>(
       () => _remote.register(
         fullName: fullName,
         email: email,
-        password: password,
         phone: phone,
+        password: password,
+        code: code,
       ),
     );
   }

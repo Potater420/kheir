@@ -27,6 +27,13 @@ abstract final class Validators {
     return _phonePattern.hasMatch(digits) ? null : ValidationError.phoneInvalid;
   }
 
+  /// Register: the phone is required.
+  static ValidationError? phoneRequired(String? value) {
+    final text = value?.trim() ?? '';
+    if (text.isEmpty) return ValidationError.phoneInvalid;
+    return phoneOptional(text);
+  }
+
   static ValidationError? email(String? value) {
     final text = value?.trim() ?? '';
     if (text.isEmpty) return ValidationError.emailRequired;

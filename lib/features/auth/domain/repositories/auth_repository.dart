@@ -13,11 +13,20 @@ abstract interface class AuthRepository {
     required String password,
   });
 
+  /// Step 1 of registering: checks the email and phone are free and sends
+  /// a verification code to the email.
+  Future<Result<void>> requestRegistrationCode({
+    required String email,
+    required String phone,
+  });
+
+  /// Step 2: creates the account with the emailed [code] and signs in.
   Future<Result<AppUser>> register({
     required String fullName,
     required String email,
+    required String phone,
     required String password,
-    String? phone,
+    required String code,
   });
 
   Future<Result<void>> logout();

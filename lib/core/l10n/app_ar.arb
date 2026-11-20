@@ -38,7 +38,7 @@
   "homePlaceholderTitle": "تم تسجيل دخولك بنجاح",
   "homePlaceholderMessage": "الشاشة الرئيسية جاية في مرحلة لاحقة.",
   "logoutButton": "تسجيل الخروج",
-  "phoneLabel": "رقم الهاتف (اختياري)",
+  "phoneLabel": "رقم الهاتف",
   "validationPhoneInvalid": "اكتب رقم هاتف صحيح.",
   "identifierLabel": "البريد الإلكتروني أو رقم الهاتف",
   "validationIdentifierRequired": "اكتب بريدك الإلكتروني أو رقم هاتفك",
@@ -47,5 +47,14 @@
   "errorSessionExpired": "انتهت جلستك. سجّل الدخول مرة تانية.",
   "errorForbidden": "مش مسموح لك تعمل ده.",
   "errorTooManyRequests": "محاولات كتير. حاول مرة تانية بعد شوية.",
-  "errorServer": "حصلت مشكلة في السيرفر. حاول بعد شوية."
+  "errorServer": "حصلت مشكلة في السيرفر. حاول بعد شوية.",
+    "verifyTitle": "تأكيد البريد الإلكتروني",
+  "verifyHeading": "بعتنالك رمز التحقق",
+  "verifyInstruction": "اكتب الرمز المكوّن من {count} أرقام المرسل إلى {email}",
+  "verifyResendIn": "إعادة إرسال الرمز خلال {time}",
+  "verifyResend": "إعادة إرسال الرمز",
+  "verifyChangeEmail": "تغيير البريد الإلكتروني",
+  "verifySecurityNotice": "ما تشاركش رمز التحقق مع أي شخص، حتى لو قال إنه من خير.",
+  "verifyConfirm": "تأكيد ومتابعة",
+  "verifyIncomplete": "اكتب الرمز كامل"
 }
