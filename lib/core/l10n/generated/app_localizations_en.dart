@@ -131,7 +131,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get logoutButton => 'Log out';
 
   @override
-  String get phoneLabel => 'Phone number (optional)';
+  String get phoneLabel => 'Phone number';
 
   @override
   String get validationPhoneInvalid => 'Enter a valid phone number.';
@@ -163,4 +163,36 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get errorServer => 'The server had a problem. Please try again later.';
+
+  @override
+  String get verifyTitle => 'Verify your email';
+
+  @override
+  String get verifyHeading => 'We sent you a code';
+
+  @override
+  String verifyInstruction(int count, String email) {
+    return 'Enter the $count-digit code sent to $email';
+  }
+
+  @override
+  String verifyResendIn(String time) {
+    return 'Resend code in $time';
+  }
+
+  @override
+  String get verifyResend => 'Resend code';
+
+  @override
+  String get verifyChangeEmail => 'Change email';
+
+  @override
+  String get verifySecurityNotice =>
+      'Never share this code with anyone, even if they say they\'re from Kheir.';
+
+  @override
+  String get verifyConfirm => 'Confirm and continue';
+
+  @override
+  String get verifyIncomplete => 'Enter the full code';
 }

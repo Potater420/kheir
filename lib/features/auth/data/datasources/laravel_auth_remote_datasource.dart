@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:dio/dio.dart';
 
@@ -59,13 +60,10 @@ class LaravelAuthRemoteDataSource implements AuthRemoteDataSource {
           'password': password,
           'imei': await _storage.deviceId(),
           'token': AppConfig.pushTokenPlaceholder,
-          'device_type': Platform.isIOS ? 'ios' : 'android',
+          'device_type': _deviceType,
         },
       );
-      final data = responseData(response.data);
-      final tokens = AuthTokens.fromJson(data);
-      final user = UserModel.fromJson(asMap(data['data']));
-      await _storage.saveSession(tokens, jsonEncode(user.toJson()));
+      final user = await _saveSession(response.data);
       return user;
     } on DioException catch (error) {
       throw FailureException(
@@ -76,15 +74,58 @@ class LaravelAuthRemoteDataSource implements AuthRemoteDataSource {
     }
   }
 
-  /// Registration needs the email-code flow. It is built in its own branch.
+  /// Checks the email and phone are free and emails a verification code.
+  @override
+  Future<void> requestRegistrationCode({
+    required String email,
+    required String phone,
+  }) async {
+    try {
+      await _api.plain.post<Object?>(
+        '/public/register/check',
+        data: {'email': email.trim(), 'phone': _normalize(phone)},
+      );
+    } on DioException catch (error) {
+      throw FailureException(failureFromDio(error));
+    }
+  }
+
+  /// Creates the account. The API signs the new user in and returns tokens,
+  /// exactly like login. Everyone registers as a donor for now.
   @override
   Future<UserModel> register({
     required String fullName,
     required String email,
+    required String phone,
     required String password,
-    String? phone,
-  }) {
-    throw const FailureException(UnknownFailure());
+    required String code,
+  }) async {
+    try {
+      final response = await _api.plain.post<Object?>(
+        '/public/register',
+        data: {
+          'full_name': fullName.trim(),
+          'email': email.trim(),
+          'phone': _normalize(phone),
+          'password': password,
+          'confirm_password': password,
+          'code': code.trim(),
+          'type': 'donor',
+          'locale': PlatformDispatcher.instance.locale.languageCode == 'ar'
+              ? 'ar'
+              : 'en',
+          'imei': await _storage.deviceId(),
+          'token': AppConfig.pushTokenPlaceholder,
+          'device_type': _deviceType,
+        },
+      );
+      final user = await _saveSession(response.data);
+      return user;
+    } on DioException catch (error) {
+      throw FailureException(failureFromDio(error));
+    } on FormatException {
+      throw const FailureException(UnknownFailure());
+    }
   }
 
   /// Best effort: the local session is always cleared, even if the server
@@ -108,6 +149,17 @@ class LaravelAuthRemoteDataSource implements AuthRemoteDataSource {
       await _storage.clearSession();
     }
   }
+
+  /// Reads tokens and user from a login or register response and saves them.
+  Future<UserModel> _saveSession(Object? body) async {
+    final data = responseData(body);
+    final tokens = AuthTokens.fromJson(data);
+    final user = UserModel.fromJson(asMap(data['data']));
+    await _storage.saveSession(tokens, jsonEncode(user.toJson()));
+    return user;
+  }
+
+  String get _deviceType => Platform.isIOS ? 'ios' : 'android';
 
   /// Phone numbers: drop spaces and dashes. Emails are left alone.
   String _normalize(String value) {

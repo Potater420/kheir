@@ -329,7 +329,7 @@ abstract class AppLocalizations {
   /// No description provided for @phoneLabel.
   ///
   /// In en, this message translates to:
-  /// **'Phone number (optional)'**
+  /// **'Phone number'**
   String get phoneLabel;
 
   /// No description provided for @validationPhoneInvalid.
@@ -385,6 +385,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'The server had a problem. Please try again later.'**
   String get errorServer;
+
+  /// No description provided for @verifyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your email'**
+  String get verifyTitle;
+
+  /// No description provided for @verifyHeading.
+  ///
+  /// In en, this message translates to:
+  /// **'We sent you a code'**
+  String get verifyHeading;
+
+  /// No description provided for @verifyInstruction.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the {count}-digit code sent to {email}'**
+  String verifyInstruction(int count, String email);
+
+  /// No description provided for @verifyResendIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code in {time}'**
+  String verifyResendIn(String time);
+
+  /// No description provided for @verifyResend.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend code'**
+  String get verifyResend;
+
+  /// No description provided for @verifyChangeEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Change email'**
+  String get verifyChangeEmail;
+
+  /// No description provided for @verifySecurityNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Never share this code with anyone, even if they say they\'re from Kheir.'**
+  String get verifySecurityNotice;
+
+  /// No description provided for @verifyConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm and continue'**
+  String get verifyConfirm;
+
+  /// No description provided for @verifyIncomplete.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the full code'**
+  String get verifyIncomplete;
 }
 
 class _AppLocalizationsDelegate

@@ -12,7 +12,6 @@ import '../../../../core/utils/localized_messages.dart';
 import '../../../../core/utils/validators.dart';
 import '../../../../core/widgets/app_text_field.dart';
 import '../../../../core/widgets/primary_button.dart';
-import '../bloc/auth_session/auth_session_cubit.dart';
 import '../bloc/register/register_cubit.dart';
 import '../widgets/auth_app_bar.dart';
 import '../widgets/terms_checkbox.dart';
@@ -49,8 +48,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
       context.read<RegisterCubit>().submit(
             fullName: _nameController.text,
             email: _emailController.text,
-            password: _passwordController.text,
             phone: _phoneController.text,
+            password: _passwordController.text,
           ),
     );
   }
@@ -75,11 +74,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     return BlocListener<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        if (state.status == RegisterStatus.success) {
-          // Firebase signs the new account in automatically, so the app
-          // can go straight to the home screen.
-          context.read<AuthSessionCubit>().signedIn(state.user!);
-          context.go(AppRoutes.home);
+        if (state.status == RegisterStatus.codeSent) {
+          // The server emailed a code. The next screen finishes the sign-up.
+          unawaited(context.push(AppRoutes.verifyEmail, extra: state.draft));
         } else if (state.status == RegisterStatus.failure) {
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
@@ -132,7 +129,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           keyboardType: TextInputType.phone,
                           textInputAction: TextInputAction.next,
                           autofillHints: const [AutofillHints.telephoneNumber],
-                          validator: validatorFor(Validators.phoneOptional),
+                          validator: validatorFor(Validators.phoneRequired),
                         ),
                         const SizedBox(height: AppSpacing.l),
                         AppTextField(
